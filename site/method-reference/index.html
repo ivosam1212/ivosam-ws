@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../react-sdk/">
       
       
         <link rel="next" href="../concepts/">
@@ -215,6 +215,44 @@
       
   
   
+  
+    <li class="md-nav__item">
+      <a href="../pulse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live documentation 1 - Product
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../react-sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live documentation 2 - SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -291,15 +329,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#calling-the-method-and-displaying-the-output" class="md-nav__link">
     Calling the method and displaying the output
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -341,44 +379,6 @@
   
   <span class="md-ellipsis">
     Sample 3 - How to Play Tic-Tac-Toe
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pulse/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Live documentation 1 - Product
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../react-sdk/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Live documentation 2 - SDK
   </span>
   
 
@@ -442,15 +442,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#calling-the-method-and-displaying-the-output" class="md-nav__link">
     Calling the method and displaying the output
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -470,7 +470,7 @@
 
 
 <h1 id="sample-1-method-reference-findneedles">Sample 1: Method reference - findNeedles</h1>
-<p>This is a reference document for the <code>findNeedles</code> method. This method finds a set of words inside a string, and displays how many times finds a match for each word.</p>
+<p>This is a reference document for the <code>findNeedles</code> method. This method finds a set of words inside a string, and displays how many times each word appears in the string.</p>
 <h2 id="method">Method</h2>
 <p>The following code sample represents a <em>find needles in haystack method</em> written in <strong>Java</strong>:</p>
 <pre><code class="language-java">public static void findNeedles(String haystack, String[] needles) {
@@ -492,33 +492,43 @@
     }
 }
 </code></pre>
+<p>The following sections describe the <code>findNeedles</code> method in three parts for easier analysis:</p>
+<ul>
+<li><strong>Parameters:</strong> This is what you need to pass.</li>
+<li><strong>Execution condition:</strong> Describes the condition to use the method.</li>
+<li><strong>Haystack split and word comparison:</strong> Describes how the method works.</li>
+</ul>
 <h3 id="parameters">Parameters</h3>
 <p>The method receives two parameters:</p>
-<pre><code class="language-java">public static void findNeedles(String haystack, String[] needles)
+<pre><code class="language-java">public static void findNeedles(String haystack, String[] needles) {
 </code></pre>
 <ul>
 <li><code>haystack</code>: the string containing the available words </li>
 <li><code>needles</code>: an array of words to find in the haystack </li>
 </ul>
 <h3 id="execution-condition">Execution condition</h3>
-<p>This method only works for a set of <strong><em>maximum</em></strong> <em>five words</em>. If the <code>needles</code> array contains more than five elements, an error message is displayed.</p>
-<pre><code class="language-java">if (needles.length &gt; 5) {
+<p>This method only works for a set of <strong><em>maximum</em></strong> <em>five words</em>. If the <code>needles</code> array contains more than five elements, an error message is displayed. If it contains five elements or less, the method creates an array to store the count of each word in <code>needles</code> and enters a loop described in the next section.</p>
+<p>This code snippet illustrates the condition:</p>
+<pre><code class="language-java">...
+    if (needles.length &gt; 5) {
         System.err.println(&quot;Too many words!&quot;);
+    else {
+        int[] countArray = new int[needles.length];
+...
 </code></pre>
 <h3 id="haystack-split-and-word-comparison">Haystack split and word comparison</h3>
-<p>If the <code>needles</code> array contains five elements or less, creates an array to store the count of each word in <code>needles</code>.</p>
-<pre><code class="language-java">else {
-        int[] countArray = new int[needles.length];
-</code></pre>
 <p>The following <code>for</code> loop separates the <code>haystack</code> string into single words using the <code>split</code> Java method and stores them in a new array of strings called <code>words</code>. </p>
-<pre><code class="language-Java">for (int i = 0; i&lt;needles.length; i++) {
-    String[] words = haystack.split(&quot;[ \&quot;\'\t\n\b\f\r]&quot;, 0);
-    for (int j = 0; j&lt;words.length; j++) {
-        if (words[j].compareTo(needles[i]) == 0) {
-            countArray[i]++;
+<p>This code snippet illustrates the haystack split:</p>
+<pre><code class="language-Java">...
+        for (int i = 0; i&lt;needles.length; i++) {
+            String[] words = haystack.split(&quot;[ \&quot;\'\t\n\b\f\r]&quot;, 0);
+            for (int j = 0; j&lt;words.length; j++) {
+                if (words[j].compareTo(needles[i]) == 0) {
+                    countArray[i]++;
+                }
+            }
         }
-    }
-}
+...
 </code></pre>
 <p>The <code>split</code> method takes two arguments: a <em>regular expression</em> and a <em>limit</em>. In this case:</p>
 <ul>
@@ -527,16 +537,17 @@
 </ul>
 <p><strong>Note:</strong> To know more about the <code>split</code> method, visit the <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#split">String Class documentation</a> and navigate to the <strong>split</strong> section.</p>
 <p>The inner <code>for</code> loop compares, using the <code>compareTo</code> Java method, each string of the <code>words</code> array with the word in the current position of the <code>needles</code> array. </p>
-<pre><code class="language-Java">for (int j = 0; j&lt;words.length; j++) {
-        if (words[j].compareTo(needles[i]) == 0) {
-            countArray[i]++;
+<p>This code snippet illustrates the word comparison:</p>
+<pre><code class="language-Java">...
+        for (int j = 0; j&lt;needles.length; j++) {
+            System.out.println(needles[j] + &quot;: &quot; + countArray[j]);
         }
     }
 }
 </code></pre>
 <p>For each comparison, the code checks if the <code>compareTo</code> method returned a <code>0</code>, indicating a match between both words. If there is a match, it increases the counter for that word.</p>
 <p><strong>Note:</strong> To know more about the <code>compareTo</code> method, visit the <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html">Comparable documentation</a>.</p>
-<h3 id="calling-the-method-and-displaying-the-output">Calling the method and displaying the output</h3>
+<h2 id="calling-the-method-and-displaying-the-output">Calling the method and displaying the output</h2>
 <p>Calling the method returns each word in <code>needles</code> and the number of times that it was found inside the <code>haystack</code> string.</p>
 <p>Here is an example of calling the method:</p>
 <pre><code class="language-Java">String[] needles = new String[]{&quot;hello&quot;,&quot;hollo&quot;,&quot;hullo&quot;, &quot;hillo&quot;, &quot;hallo&quot;};
