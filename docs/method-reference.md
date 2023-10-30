@@ -1,7 +1,7 @@
 # Sample 1: Method reference - findNeedles
 This is a reference document for the `findNeedles` method. This method finds a set of words inside a string, and displays how many times finds a match for each word.
 
-## Syntax
+## Method
 
 The following code sample represents a *find needles in haystack method* written in **Java**:
 
@@ -32,7 +32,7 @@ The method receives two parameters:
 public static void findNeedles(String haystack, String[] needles)
 ```
 * ``haystack``: the string containing the available words 
-* ``needles``: the words to find in the haystack 
+* ``needles``: an array of words to find in the haystack 
 
 ### Execution condition
 
