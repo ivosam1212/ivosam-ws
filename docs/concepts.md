@@ -16,12 +16,6 @@ The following table lists the main differences between REST and SOAP:
 
 ## REST or SOAP
 Even though REST proves to have lighter payloads and faster responses, SOAP integrates security and reliability. 
-You can use SOAP for:
-
-- banking
-- financial applications
-- telecommunication services
-- sensible, historical information
 
 REST can work better for performance-driven projects, such as:
 
@@ -29,3 +23,11 @@ REST can work better for performance-driven projects, such as:
 - chats
 - lightweight web services
 - scalable and flexible applications
+
+You can use SOAP for:
+
+- banking
+- financial applications
+- telecommunication services
+- sensible, historical information
+
