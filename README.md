@@ -15,7 +15,7 @@ docker build -t tw-mkdocs-img .
 ## Serve your local environment.
 Execute the following command in the terminal after the docker image creation.
 ```bash
-docker run --name wizeline-mkdocs-template -p 9090:9090 --volume="$PWD:/app" tw-mkdocs-img:latest
+docker run --name tw-mkdocs-template -p 9090:9090 --volume="$PWD:/app" tw-mkdocs-img:latest
 ```
 Note: Use the -d flag in the above command to detach your terminal from the running container.
 
